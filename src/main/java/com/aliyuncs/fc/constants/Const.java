@@ -39,6 +39,9 @@ public class Const {
     public final static String SINGLE_PROVISION_CONFIG_PATH =
         SINGLE_FUNCTION_WITH_QUALIFIER_PATH + "/provision-config";
 
+    public final static String VPC_BINDING_PATH = SINGLE_SERVICE_PATH + "/binding";
+    public final static String LIST_VPC_BINDINGS_PATH = SINGLE_SERVICE_PATH + "/bindings";
+
     /**
      * 3 seconds
      *

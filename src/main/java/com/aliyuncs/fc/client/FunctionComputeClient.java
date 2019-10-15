@@ -523,4 +523,31 @@ public class FunctionComputeClient {
         }
         return invokeFunctionResponse;
     }
+
+    public CreateVpcBindingResponse createVpcBinding(CreateVpcBindingRequest request)
+        throws ClientException, ServerException {
+        HttpResponse response = client.doAction(request, CONTENT_TYPE_APPLICATION_JSON, POST);
+        CreateVpcBindingResponse createResponse = new CreateVpcBindingResponse();
+        createResponse.setHeaders(response.getHeaders());
+        createResponse.setStatus(response.getStatus());
+        return createResponse;
+    }
+
+    public DeleteVpcBindingResponse deleteVpcBinding(DeleteVpcBindingRequest request)
+        throws ClientException, ServerException {
+        HttpResponse response = client.doAction(request, CONTENT_TYPE_APPLICATION_JSON, DELETE);
+        DeleteVpcBindingResponse deleteResponse = new DeleteVpcBindingResponse();
+        deleteResponse.setHeaders(response.getHeaders());
+        deleteResponse.setStatus(response.getStatus());
+        return deleteResponse;
+    }
+
+    public ListVpcBindingsResponse listVpcBindings(ListVpcBindingsRequest request)
+        throws ClientException, ServerException {
+        HttpResponse response = client.doAction(request, CONTENT_TYPE_APPLICATION_JSON, GET);
+        ListVpcBindingsResponse listResponse = GSON.fromJson(FcUtil.toDefaultCharset(response.getContent()), ListVpcBindingsResponse.class);
+        listResponse.setHeaders(response.getHeaders());
+        listResponse.setStatus(response.getStatus());
+        return listResponse;
+    }
 }
